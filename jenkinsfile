@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    
+    tools {
+        maven 'Maven'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/your-repo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean test'
+            }
+        }
+    }
+}
